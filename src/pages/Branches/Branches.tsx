@@ -3,60 +3,46 @@ import './Branches.css';
 
 const branches = [
   {
-    flag: '🏛️', city: 'Chennai', state: 'Tamil Nadu', hq: true,
-    address: '123 Tech Park, Anna Nagar, Chennai – 600040',
+    flag: '🏛️', city: 'Impetus', state: 'Pudukkottai', hq: true,
+    address: 'TVS Shanmuga Nagar, Pudukkottai – 622001',
     phone: '+91 98765 43210',
-    email: 'chennai@nexacore.in',
+    email: 'igroups@gmail.com',
     team: 80,
   },
   {
-    flag: '🌆', city: 'Bangalore', state: 'Karnataka', hq: false,
-    address: '45 Whitefield IT Corridor, Bangalore – 560066',
+    flag: '🌆', city: 'Infinity', state: 'Pudukkottai', hq: false,
+    address: 'Ashok Nagar, Pudukkottai – 622001',
     phone: '+91 98765 43211',
-    email: 'bangalore@nexacore.in',
+    email: 'igroups@gmail.com',
     team: 45,
   },
   {
-    flag: '🏙️', city: 'Hyderabad', state: 'Telangana', hq: false,
-    address: '12 HITEC City, Madhapur, Hyderabad – 500081',
+    flag: '🏙️', city: 'Intelygenz', state: 'Pudukkottai', hq: false,
+    address: 'Ashok Nagar, Pudukkottai – 622001',
     phone: '+91 98765 43212',
-    email: 'hyderabad@nexacore.in',
+    email: 'igroups@gmail.com',
     team: 30,
   },
   {
-    flag: '🌇', city: 'Mumbai', state: 'Maharashtra', hq: false,
-    address: '88 BKC Business Hub, Bandra East, Mumbai – 400051',
+    flag: '🌇', city: 'Inspire', state: 'Pudukkottai', hq: false,
+    address: 'Melur, Tamil nadu – 622001',
     phone: '+91 98765 43213',
-    email: 'mumbai@nexacore.in',
+    email: 'igroups@gmail.com',
     team: 25,
   },
   {
-    flag: '🏰', city: 'Delhi', state: 'Delhi NCR', hq: false,
-    address: '7 Cyber City, Gurugram, Delhi NCR – 122002',
+    flag: '🏰', city: 'Insight', state: 'Pudukkottai', hq: false,
+    address: 'Machuvadi, Pudukkottai – 622001',
     phone: '+91 98765 43214',
-    email: 'delhi@nexacore.in',
+    email: 'igroups@gmail.com',
     team: 20,
   },
   {
-    flag: '🌃', city: 'Pune', state: 'Maharashtra', hq: false,
-    address: '33 Hinjewadi Phase 2, Pune – 411057',
+    flag: '🌃', city: 'Innowave', state: 'Pudukkottai', hq: false,
+    address: 'Pattukottai Main– 622001',
     phone: '+91 98765 43215',
-    email: 'pune@nexacore.in',
+    email: 'igroups@gmail.com',
     team: 18,
-  },
-  {
-    flag: '🏖️', city: 'Coimbatore', state: 'Tamil Nadu', hq: false,
-    address: '56 TIDEL Park, Saravanampatti, Coimbatore – 641035',
-    phone: '+91 98765 43216',
-    email: 'coimbatore@nexacore.in',
-    team: 12,
-  },
-  {
-    flag: '⛵', city: 'Kochi', state: 'Kerala', hq: false,
-    address: '22 Infopark, Kakkanad, Kochi – 682030',
-    phone: '+91 98765 43217',
-    email: 'kochi@nexacore.in',
-    team: 10,
   },
 ];
 
@@ -83,7 +69,7 @@ const Branches: React.FC = () => {
           <div className="india-banner">
             <div>
               <h3>🇮🇳 Pan-India Presence</h3>
-              <p>From the tech corridors of Chennai to the startup hubs of Bangalore — I Groups is across India.</p>
+              <p>We are proudly growing across multiple locations:</p>
             </div>
             <div className="india-stats">
               {[['8', 'Cities'], ['214+', 'Team'], ['500+', 'Clients']].map(([n, l]) => (
@@ -124,23 +110,6 @@ const Branches: React.FC = () => {
                   </div>
                   <span>{b.team}+ Team Members</span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="branches-global">
-        <div className="container">
-          <div className="section-tag">Global Reach</div>
-          <h2 className="section-title">Beyond <span>Borders</span></h2>
-          <div className="global-grid">
-            {globalPresence.map((g, i) => (
-              <div className="global-card" key={i}>
-                <div className="global-flag">{g.flag}</div>
-                <h4>{g.country}</h4>
-                <p>{g.detail}</p>
-                {g.soon && <div className="coming-soon-badge">🚧 Coming Soon</div>}
               </div>
             ))}
           </div>

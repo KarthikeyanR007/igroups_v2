@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="footer-top">
           <div className="footer-brand">
             <Link to="/" className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div className="logo-icon" style={{ width: 42, height: 42, background: 'linear-gradient(135deg,#00d4ff,#7c3aed)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne', fontWeight: 800, fontSize: '1.1rem', color: 'white' }}>N</div>
+              {/* <div className="logo-icon" style={{ width: 42, height: 42, background: 'linear-gradient(135deg,#00d4ff,#7c3aed)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne', fontWeight: 800, fontSize: '1.1rem', color: 'white' }}>N</div> */}
               <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.2rem', color: 'var(--text-primary)' }}>I<span style={{ color: 'var(--accent)' }}>Groups</span></span>
             </Link>
             <p>Empowering enterprises with innovative technology solutions, expert talent, and transformative digital experiences.</p>
@@ -34,22 +34,10 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="footer-col">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">App Development</a></li>
-              <li><a href="#">UI/UX Design</a></li>
-              <li><a href="#">Cloud Solutions</a></li>
-              <li><a href="#">AI & Automation</a></li>
-              <li><a href="#">Consulting</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
             <h4>Contact</h4>
             <div className="footer-contact-item">
               <div className="contact-icon">📍</div>
-              <span>123 Tech Park, Anna Nagar, Chennai – 600040</span>
+              <span>TVS Shanmuga Nagar, Pudukkottai – 622001</span>
             </div>
             <div className="footer-contact-item">
               <div className="contact-icon">📞</div>

@@ -3,18 +3,63 @@ import './Contact.css';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
   const [form, setForm] = useState({
-    firstName: '', lastName: '', email: '', phone: '',
-    company: '', service: '', message: '',
+    fullName: '',
+    phone: '',
+    email: '',
+    age: '',
+    service: '',
+    resume: null as File | null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ✅ handleFile fix
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setForm({ ...form, resume: file });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    console.log('Form Data:', form);
+    setLoading(true);
+    setError('');
+
+    try {
+      // ✅ File upload ku FormData use pannanum
+      const formData = new FormData();
+      formData.append('fullName', form.fullName);
+      formData.append('phone', form.phone);
+      formData.append('email', form.email);
+      formData.append('age', form.age);
+      formData.append('service', form.service);
+      if (form.resume) {
+        formData.append('resume', form.resume);
+      }
+
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/event/addForm`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      setError(err.message || 'Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -29,16 +74,16 @@ const Contact: React.FC = () => {
         <div className="container">
           {/* Left Info */}
           <div className="contact-info">
-            <div className="section-tag">Get in Touch</div>
+            <div className="section-tag">Getnnnn in Touch</div>
             <h2>We're Here to <span style={{ background: 'linear-gradient(135deg,var(--accent),var(--accent2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Help</span></h2>
-            <p>Whether you're looking to start a new project, join our team, or just have a question — we're always happy to talk. Drop us a message and we'll respond promptly.</p>
+            <p>Whether you're looking to start a new project, join our team, or just have a question — we're always happy to talk.</p>
 
             <div className="contact-cards">
               <div className="contact-card">
                 <div className="cc-icon">📍</div>
                 <div className="cc-text">
                   <h4>Headquarters</h4>
-                  <p>123 Tech Park, Anna Nagar, Chennai – 600040</p>
+                  <p>TVS Shanmuga Nagar, Pudukkottai – 622001</p>
                 </div>
               </div>
               <div className="contact-card">
@@ -86,18 +131,8 @@ const Contact: React.FC = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>First Name *</label>
-                      <input name="firstName" type="text" placeholder="Arun" value={form.firstName} onChange={handleChange} required />
-                    </div>
-                    <div className="form-group">
-                      <label>Last Name *</label>
-                      <input name="lastName" type="text" placeholder="Kumar" value={form.lastName} onChange={handleChange} required />
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label>Email Address *</label>
-                      <input name="email" type="email" placeholder="arun@company.com" value={form.email} onChange={handleChange} required />
+                      <label>Full Name *</label>
+                      <input name="fullName" type="text" placeholder="Arun" value={form.fullName} onChange={handleChange} required />
                     </div>
                     <div className="form-group">
                       <label>Phone Number</label>
@@ -105,29 +140,56 @@ const Contact: React.FC = () => {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label>Company / Organization</label>
-                    <input name="company" type="text" placeholder="Your Company Name" value={form.company} onChange={handleChange} />
+                    <label>Email Address *</label>
+                    <input name="email" type="email" placeholder="arun@company.com" value={form.email} onChange={handleChange} required />
                   </div>
-                  <div className="form-group">
-                    <label>Service Interested In</label>
-                    <select name="service" value={form.service} onChange={handleChange}>
-                      <option value="">Select a service...</option>
-                      <option>Web Development</option>
-                      <option>Mobile App Development</option>
-                      <option>UI/UX Design</option>
-                      <option>AI & Machine Learning</option>
-                      <option>Cloud Solutions</option>
-                      <option>Data Analytics</option>
-                      <option>DevOps & Infrastructure</option>
-                      <option>General Inquiry</option>
-                    </select>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label>Age</label>
+                      {/* ✅ name="age" — state match ஆகுது */}
+                      <input name="age" type="text" placeholder="25" value={form.age} onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                      <label>Service Interested In</label>
+                      <select name="service" value={form.service} onChange={handleChange}>
+                        <option value="">Select a service...</option>
+                        <option>Web Development</option>
+                        <option>Mobile App Development</option>
+                        <option>UI/UX Design</option>
+                        <option>AI & Machine Learning</option>
+                        <option>Cloud Solutions</option>
+                        <option>Data Analytics</option>
+                        <option>DevOps & Infrastructure</option>
+                        <option>General Inquiry</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label>Your Message *</label>
-                    <textarea name="message" placeholder="Tell us about your project, goals, timeline, or any specific requirements..." value={form.message} onChange={handleChange} required />
+                  <div className="aform-group">
+                    <label>Resume / CV *</label>
+                    <div className={`resume-upload-box ${form.resume ? 'has-file' : ''}`}>
+                      <input type="file" accept=".pdf,.doc,.docx" onChange={handleFile} />
+                      {form.resume ? (
+                        <>
+                          <span className="upload-icon">✅</span>
+                          <div className="upload-text">File Selected</div>
+                          <div className="upload-filename">{form.resume.name}</div>
+                        </>
+                      ) : (
+                        <>
+                          <span className="upload-icon">📎</span>
+                          <div className="upload-text">Click to upload your resume</div>
+                          <div className="upload-hint">PDF, DOC, DOCX — Max 5 MB</div>
+                        </>
+                      )}
+                    </div>
                   </div>
-                  <button type="submit" className="form-submit">
-                    Send Message →
+
+                  {error && (
+                    <div style={{ color: 'red', marginTop: '10px' }}>⚠️ {error}</div>
+                  )}
+
+                  <button type="submit" className="form-submit" disabled={loading}>
+                    {loading ? 'Sending...' : 'Send Message →'}
                   </button>
                 </form>
               </>

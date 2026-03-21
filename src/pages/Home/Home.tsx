@@ -121,11 +121,11 @@ const Home: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="card-tags">
+              {/* <div className="card-tags">
                 <span className="tag cyan">Web Dev</span>
                 <span className="tag">AI Solutions</span>
                 <span className="tag amber">Cloud Infra</span>
-              </div>
+              </div> */}
             </div>
 
             <div className="floating-badge-1">

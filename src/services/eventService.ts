@@ -1,6 +1,6 @@
 // src/services/eventService.ts
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 // ── Types ────────────────────────────────────────────────
 export interface Event {

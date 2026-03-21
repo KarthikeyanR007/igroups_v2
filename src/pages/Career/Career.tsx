@@ -42,19 +42,21 @@ const roles = [
 const ageOptions = Array.from({ length: 33 }, (_, i) => 18 + i);
 
 interface AppForm {
-  name: string;
+  fullName: string;
   phone: string;
   email: string;
   age: string;
-  role: string;
+  service: string;
   resume: File | null;
 }
 
 const Career: React.FC = () => {
   const [active, setActive] = useState('All');
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [form, setForm] = useState<AppForm>({
-    name: '', phone: '', email: '', age: '', role: '', resume: null,
+    fullName: '', phone: '', email: '', age: '', service: '', resume: null,
   });
 
   const filtered = active === 'All' ? jobs : jobs.filter(j => j.dept === active);
@@ -68,9 +70,41 @@ const Career: React.FC = () => {
     setForm(prev => ({ ...prev, resume: file }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    console.log('Form Data:', form);
+    setLoading(true);
+    setError('');
+
+    try {
+      // ✅ File upload ku FormData use pannanum
+      const formData = new FormData();
+      formData.append('fullName', form.fullName);
+      formData.append('phone', form.phone);
+      formData.append('email', form.email);
+      formData.append('age', form.age);
+      formData.append('service', form.service);
+      if (form.resume) {
+        formData.append('resume', form.resume);
+      }
+      console.log(['formData ',formData]);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/event/addForm`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      setError(err.message || 'Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -124,10 +158,10 @@ const Career: React.FC = () => {
                     <div className="aform-group">
                       <label>Full Name *</label>
                       <input
-                        name="name"
+                        name="fullName"
                         type="text"
                         placeholder="Arun Kumar"
-                        value={form.name}
+                        value={form.fullName}
                         onChange={handleChange}
                         required
                       />
@@ -174,7 +208,7 @@ const Career: React.FC = () => {
                     <div className="aform-group">
                       <label>Applying For *</label>
                       <div className="select-wrap">
-                        <select name="role" value={form.role} onChange={handleChange} required>
+                        <select name="service" value={form.service} onChange={handleChange} required>
                           <option value="">Select role</option>
                           {roles.map(r => (
                             <option key={r} value={r}>{r}</option>
