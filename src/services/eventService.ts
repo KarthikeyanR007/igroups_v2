@@ -2,6 +2,29 @@
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
+// Normalize image URL coming from API (handles absolute + relative paths)
+const normalizePhotoUrl = (raw?: string) => {
+  if (!raw) return "";
+  const trimmed = String(raw).trim();
+  if (!trimmed) return "";
+
+  // Already absolute URL
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+
+  // Fallback if BASE_URL is missing
+  if (!BASE_URL) {
+    return trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
+  }
+
+  const base = BASE_URL.replace(/\/+$/, "");
+  const noLeadingSlash = trimmed.replace(/^\/+/, "");
+  const path = noLeadingSlash.startsWith("storage/")
+    ? noLeadingSlash
+    : `storage/${noLeadingSlash}`;
+
+  return `${base}/${path}`;
+};
+
 // ── Types ────────────────────────────────────────────────
 export interface Event {
   id: string;
@@ -60,9 +83,12 @@ export const fetchEvents = async (): Promise<Event[]> => {
     date:     item.eventdate        ?? "",
     location: item.eventlocation    ?? "",
     seats:    item.seats            ?? "",
-    photo:    item.eventimage
-                ? `${BASE_URL}/storage/${item.eventimage}`
-                : "",
+    photo:    normalizePhotoUrl(
+                item.eventimage ??
+                item.photo ??
+                item.image ??
+                item.event_image
+              ),
   }));
 };
 

@@ -5,43 +5,43 @@ const branches = [
   {
     flag: '🏛️', city: 'Impetus', state: 'Pudukkottai', hq: true,
     address: 'TVS Shanmuga Nagar, Pudukkottai – 622001',
-    phone: '+91 98765 43210',
-    email: 'igroups@gmail.com',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
     team: 80,
   },
   {
     flag: '🌆', city: 'Infinity', state: 'Pudukkottai', hq: false,
     address: 'Ashok Nagar, Pudukkottai – 622001',
-    phone: '+91 98765 43211',
-    email: 'igroups@gmail.com',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
     team: 45,
   },
   {
     flag: '🏙️', city: 'Intelygenz', state: 'Pudukkottai', hq: false,
     address: 'Ashok Nagar, Pudukkottai – 622001',
-    phone: '+91 98765 43212',
-    email: 'igroups@gmail.com',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
     team: 30,
   },
   {
     flag: '🌇', city: 'Inspire', state: 'Pudukkottai', hq: false,
     address: 'Melur, Tamil nadu – 622001',
-    phone: '+91 98765 43213',
-    email: 'igroups@gmail.com',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
     team: 25,
   },
   {
     flag: '🏰', city: 'Insight', state: 'Pudukkottai', hq: false,
     address: 'Machuvadi, Pudukkottai – 622001',
-    phone: '+91 98765 43214',
-    email: 'igroups@gmail.com',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
     team: 20,
   },
   {
     flag: '🌃', city: 'Innowave', state: 'Pudukkottai', hq: false,
     address: 'Pattukottai Main– 622001',
-    phone: '+91 98765 43215',
-    email: 'igroups@gmail.com',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
     team: 18,
   },
 ];
@@ -59,7 +59,7 @@ const Branches: React.FC = () => {
   return (
     <div className="branches-page">
       <div className="page-hero">
-        <div className="section-tag">Branches123</div>
+        <div className="section-tag">Branches</div>
         <h1 className="section-title">We're <span>Everywhere</span></h1>
         <p>8 cities across India and a growing global footprint — always close to where you need us most.</p>
       </div>

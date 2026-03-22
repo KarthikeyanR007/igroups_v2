@@ -80,6 +80,7 @@ const EventPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const loadEvents = async () => {
@@ -125,23 +126,12 @@ const EventPage: React.FC = () => {
             <div className="events-grid">
               {events.map((e, i) => (
                 <div className="event-card" key={e.id || i}>
-                  <div className="event-card-photo">
-                    <img src={e.photo} alt={e.title} />
-                    <span className="event-type-badge" style={{ background: typeColors[e.type] ?? '#6366f1' }}>
-                      {e.type}
-                    </span>
-                  </div>
-                  {/* <div className="event-card-body">
-                    <h3 className="event-card-title">{e.title}</h3>
-                    <p className="event-card-desc">{e.desc}</p>
-                    <div className="event-card-date">
-                      <span>📅</span>
-                      <span>{e.date?.split(" ")[0]}</span>
+                    <div className="event-card-photo">
+                      <img src={`${e.photo}`} alt={e.title} />
+                      <span className="event-type-badge" style={{ background: typeColors[e.type] ?? '#6366f1' }}>
+                        {e.type}
+                      </span>
                     </div>
-                    <div className="event-card-footer">
-                      <span className="event-location">📍 {e.location}</span>
-                    </div>
-                  </div> */}
                   <div className="event-card-body">
                       <h3 className="event-card-title">{e.title}</h3>
                       <p className="event-card-desc">{e.desc}</p>

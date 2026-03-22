@@ -27,15 +27,8 @@ const perks = [
 ];
 
 const roles = [
-  'Senior React Developer',
-  'Node.js Backend Engineer',
-  'UI/UX Designer',
-  'DevOps Engineer',
-  'AI/ML Engineer',
-  'Product Manager',
-  'Business Development Executive',
-  'Technical Content Writer',
-  'QA Automation Engineer',
+  'Assistant Manager',
+  'Senior Manager',
   'Other',
 ];
 
@@ -171,7 +164,7 @@ const Career: React.FC = () => {
                       <input
                         name="phone"
                         type="tel"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 99523 63079"
                         value={form.phone}
                         onChange={handleChange}
                         required

@@ -90,14 +90,14 @@ const Contact: React.FC = () => {
                 <div className="cc-icon">📞</div>
                 <div className="cc-text">
                   <h4>Call Us</h4>
-                  <p>+91 98765 43210 · Mon–Sat, 9am–7pm IST</p>
+                  <p>+91 99523 63079 · Mon–Sat, 9am–7pm IST</p>
                 </div>
               </div>
               <div className="contact-card">
                 <div className="cc-icon">✉️</div>
                 <div className="cc-text">
                   <h4>Email Us</h4>
-                  <p>hello@igroups.in · Replies within 24 hrs</p>
+                  <p>igroups2025@gmail.com · Replies within 24 hrs</p>
                 </div>
               </div>
               <div className="contact-card">
@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="form-group">
                       <label>Phone Number</label>
-                      <input name="phone" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
+                      <input name="phone" type="tel" placeholder="+91 99523 63079" value={form.phone} onChange={handleChange} />
                     </div>
                   </div>
                   <div className="form-group">
@@ -146,21 +146,15 @@ const Contact: React.FC = () => {
                   <div className="form-row">
                     <div className="form-group">
                       <label>Age</label>
-                      {/* ✅ name="age" — state match ஆகுது */}
                       <input name="age" type="text" placeholder="25" value={form.age} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                       <label>Service Interested In</label>
                       <select name="service" value={form.service} onChange={handleChange}>
                         <option value="">Select a service...</option>
-                        <option>Web Development</option>
-                        <option>Mobile App Development</option>
-                        <option>UI/UX Design</option>
-                        <option>AI & Machine Learning</option>
-                        <option>Cloud Solutions</option>
-                        <option>Data Analytics</option>
-                        <option>DevOps & Infrastructure</option>
-                        <option>General Inquiry</option>
+                        <option>Assistant Manager</option>
+                        <option>Senior Manager</option>
+                        <option>Others</option>
                       </select>
                     </div>
                   </div>
@@ -205,7 +199,7 @@ const Contact: React.FC = () => {
             <div className="map-grid" />
             <div className="map-pin">📍</div>
             <div className="map-label">I Groups Headquarters</div>
-            <div className="map-sublabel">123 Tech Park, Anna Nagar, Chennai – 600040</div>
+            <div className="map-sublabel">TVS Shanmuga Nagar, Pudukkottai – 622001</div>
           </div>
         </div>
       </section>
