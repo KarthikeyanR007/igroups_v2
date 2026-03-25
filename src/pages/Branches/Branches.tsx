@@ -2,9 +2,16 @@ import React from 'react';
 import './Branches.css';
 
 const branches = [
+    {
+    flag: '🌁', city: 'I Groups', state: 'Pudukkottai', hq: true,
+    address: 'No.2741, Thirukkattalai,Ashok Nagar Bus stop, Sornaboomi Nagar, Pudukkottai – 622303',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
+    team: 80,
+  },
   {
     flag: '🏛️', city: 'Impetus', state: 'Pudukkottai', hq: true,
-    address: 'No.2741, Thirukkattalai,Ashok Nagar Bus stop, Sornaboomi Nagar, Pudukkottai – 622303',
+    address: 'TVS Shanmuga Nagar, Pudukkottai – 622303',
     phone: '+91 99523 63079',
     email: 'igroups2025@gmail.com',
     team: 80,
