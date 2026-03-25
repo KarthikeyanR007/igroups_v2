@@ -12,43 +12,43 @@ import './About.css';
 
 const team = [
   {
-    name: 'Kousalya (B.E.)',
+    name: 'Miss. Kousalya B.E',
     role: 'CEO & Founder',
     image: kousalyaImg,
     desc: 'A passionate leader dedicated to building opportunities and shaping future entrepreneurs.'
   },
   {
-    name: 'Manikandan (B.A.)',
+    name: 'Mr. Manikandan B.A',
     role: 'General Manager',
     image: manikandanImg,
     desc: 'An experienced mentor focused on guiding individuals toward professional excellence.'
   },
   {
-    name: 'Mr. Lal Prasanth',
+    name: 'Mr. Lal Prasanth B.Com',
     role: 'Inspire Senior Manager',
     image: LalPrasanthImg,
     desc: 'Drives inspiration across teams by fostering a culture of motivation, growth, and limitless potential.'
   },
   {
-    name: 'Miss. Janani',
+    name: 'Miss. Janani Bsc',
     role: 'Insight Senior Manager',
     image: JananiImg,
     desc: 'Transforms data into powerful insights, enabling smarter decisions and stronger business outcomes.'
   },
   {
-    name: 'Miss. Sharmila',
+    name: 'Miss. Sharmila BE',
     role: 'Infogain Senior Manager',
     image: SharmilaImg,
     desc: 'Bridges knowledge and strategy to unlock new growth opportunities within the Infogain division.'
   },
   {
-    name: 'Mr. Rishenath',
+    name: 'Mr. Rishenath BE',
     role: 'Infogain Senior Manager',
     image: RishenathImg,
     desc: 'Champions team development and operational efficiency with a results-driven leadership approach.'
   },
   {
-    name: 'Mr. Muthumani',
+    name: 'Mr. Muthumani Msc',
     role: 'Intelygenz Senior Manager',
     image: MuthumaniImg,
     desc: 'Leads the Intelygenz division with sharp analytical thinking and a passion for intelligent solutions.'

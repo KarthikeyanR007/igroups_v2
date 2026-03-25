@@ -10,7 +10,7 @@ const branches = [
     team: 80,
   },
   {
-    flag: '🏛️', city: 'Impetus', state: 'Pudukkottai', hq: true,
+    flag: '🏛️', city: 'Impetus', state: 'Pudukkottai', hq: false,
     address: 'TVS Shanmuga Nagar, Pudukkottai – 622303',
     phone: '+91 99523 63079',
     email: 'igroups2025@gmail.com',
