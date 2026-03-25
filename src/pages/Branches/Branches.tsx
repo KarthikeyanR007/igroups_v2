@@ -4,7 +4,7 @@ import './Branches.css';
 const branches = [
   {
     flag: '🏛️', city: 'Impetus', state: 'Pudukkottai', hq: true,
-    address: 'TVS Shanmuga Nagar, Pudukkottai – 622001',
+    address: 'No.2741, Thirukkattalai,Ashok Nagar Bus stop, Sornaboomi Nagar, Pudukkottai – 622303',
     phone: '+91 99523 63079',
     email: 'igroups2025@gmail.com',
     team: 80,
@@ -38,8 +38,15 @@ const branches = [
     team: 20,
   },
   {
-    flag: '🌃', city: 'Innowave', state: 'Pudukkottai', hq: false,
+    flag: '🌃', city: 'Innowave', state: 'Pattukottai', hq: false,
     address: 'Pattukottai Main– 622001',
+    phone: '+91 99523 63079',
+    email: 'igroups2025@gmail.com',
+    team: 18,
+  },
+  {
+    flag: '🏢', city: 'Infogain', state: 'Karaikudi', hq: false,
+    address: 'Karaikudi 630001',
     phone: '+91 99523 63079',
     email: 'igroups2025@gmail.com',
     team: 18,

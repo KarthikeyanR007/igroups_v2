@@ -18,11 +18,51 @@ const benefits = [
 ];
 
 const steps = [
-  { num: '01', title: 'Trainee', desc: 'Start with foundational learning and hands-on training.' },
-  { num: '02', title: 'Trainer', desc: 'Develop skills by guiding and supporting new trainees.' },
-  { num: '03', title: 'Organiser', desc: 'Take ownership of tasks, coordination, and execution.' },
-  { num: '04', title: 'Assistant Manager', desc: 'Handle responsibilities with leadership and decision-making.' },
-  { num: '05', title: 'Senior Manager', desc: 'Lead teams, drive strategy, and manage operations.' },
+  {
+    num: '01',
+    title: 'Trainee',
+    desc: [
+      'Punctuality, Regularity, Responsibility',
+      'Stability in Business',
+      'Master of 5 Steps, 4 Factors and 8 Steps',
+      'Ringing the Bell Continuously for 3 Days'
+    ]
+  },
+  {
+    num: '02',
+    title: 'Trainer',
+    desc: [
+      'Teach and Motivate Others',
+      'Run Impact',
+      'Replace Yourself',
+      'Deep Knowledge in Field Administration',
+      'Build Strong Relationship',
+      'Must Develop Strong 3 Trainees',
+      'Good Character',
+      'Minimum Attendance in 180 Days'
+    ]
+  },
+  {
+    num: '03',
+    title: 'Assistant Manager',
+    desc: [
+      'Deep Knowledge in Office Administration',
+      'Accounting and Stock Control',
+      'Interview',
+      'Motivating Large Groups',
+      'Banking'
+    ]
+  },
+  {
+    num: '04',
+    title: 'Senior Manager',
+    desc: [
+      'Run Your Own Business',
+      'Make Final Decision',
+      'Develop Strong Managers',
+      'Earn up to 6 Lakhs per Year'
+    ]
+  }
 ];
 
 const Internship: React.FC = () => {
@@ -77,13 +117,18 @@ const Internship: React.FC = () => {
         <div className="container">
           <div className="section-tag">Training Path</div>
           <h2 className="section-title">Our <span>Training</span> Path</h2>
+
           <div className="process-steps">
             {steps.map((s, i) => (
               <div className="step" key={i}>
                 <div className="step-num">{s.num}</div>
                 <div className="step-content">
                   <h4>{s.title}</h4>
-                  <p>{s.desc}</p>
+                  <ol>
+                    {s.desc.map((item, j) => (
+                      <li key={j}>{item}</li>
+                    ))}
+                  </ol>
                 </div>
               </div>
             ))}

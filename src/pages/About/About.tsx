@@ -1,12 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SharmilaImg from '../../assets/team/Sharmila.jpeg'
+import RishenathImg from '../../assets/team/Rishenath.jpeg'
+import MuthumaniImg from '../../assets/team/Muthumani.jpeg'
+import manikandanImg from '../../assets/team/mani_founder.jpeg'
+import LalPrasanthImg from '../../assets/team/LalPrasanth.jpeg'
+import kousalyaImg from '../../assets/team/Kousalya_manager.jpeg'
+import JananiImg from '../../assets/team/Janani.jpeg'
+
 import './About.css';
 
 const team = [
-  { name: 'Kousalya (B.E.)', role: 'CEO & Founder', emoji: '👩‍💻', desc: 'A passionate leader dedicated to building opportunities and shaping future entrepreneurs.' },
-  { name: 'Manikandan (B.A.)', role: 'General Manager', emoji: '👨‍💼', desc: 'An experienced mentor focused on guiding individuals toward professional excellence.' },
-  { name: 'Vikram Nair', role: 'Head of Design', emoji: '🎨', desc: 'Award-winning designer crafting unforgettable user experiences.' },
-  { name: 'Divya Raj', role: 'Operations Lead', emoji: '⚙️', desc: 'Operational excellence expert ensuring flawless project delivery.' },
+  {
+    name: 'Kousalya (B.E.)',
+    role: 'CEO & Founder',
+    image: kousalyaImg,
+    desc: 'A passionate leader dedicated to building opportunities and shaping future entrepreneurs.'
+  },
+  {
+    name: 'Manikandan (B.A.)',
+    role: 'General Manager',
+    image: manikandanImg,
+    desc: 'An experienced mentor focused on guiding individuals toward professional excellence.'
+  },
+  {
+    name: 'Mr. Lal Prasanth',
+    role: 'Inspire Senior Manager',
+    image: LalPrasanthImg,
+    desc: 'Drives inspiration across teams by fostering a culture of motivation, growth, and limitless potential.'
+  },
+  {
+    name: 'Miss. Janani',
+    role: 'Insight Senior Manager',
+    image: JananiImg,
+    desc: 'Transforms data into powerful insights, enabling smarter decisions and stronger business outcomes.'
+  },
+  {
+    name: 'Miss. Sharmila',
+    role: 'Infogain Senior Manager',
+    image: SharmilaImg,
+    desc: 'Bridges knowledge and strategy to unlock new growth opportunities within the Infogain division.'
+  },
+  {
+    name: 'Mr. Rishenath',
+    role: 'Infogain Senior Manager',
+    image: RishenathImg,
+    desc: 'Champions team development and operational efficiency with a results-driven leadership approach.'
+  },
+  {
+    name: 'Mr. Muthumani',
+    role: 'Intelygenz Senior Manager',
+    image: MuthumaniImg,
+    desc: 'Leads the Intelygenz division with sharp analytical thinking and a passion for intelligent solutions.'
+  },
 ];
 
 const values = [
@@ -19,6 +65,12 @@ const values = [
 ];
 
 const About: React.FC = () => {
+
+    function getInitials(name: string) {
+      return name.replace(/\s*\(.*?\)\s*/g, '').trim()
+        .split(' ').slice(0, 2).map(w => w[0].toUpperCase()).join('');
+    }
+
   return (
     <div className="about-page">
       <div className="page-hero">
@@ -86,15 +138,21 @@ const About: React.FC = () => {
             <h2 className="section-title">Meet the <span>Visionaries</span></h2>
           </div>
           <div className="team-grid">
-            {team.map((m, i) => (
-              <div className="team-card" key={i}>
-                <div className="team-avatar">{m.emoji}</div>
-                <h4>{m.name}</h4>
-                <div className="team-role">{m.role}</div>
-                <p>{m.desc}</p>
-              </div>
-            ))}
-          </div>
+              {team.map((m, i) => (
+                <div className="team-card" key={i}>
+                  <div className="team-avatar-wrap">
+                    {m.image
+                      ? <img src={m.image} alt={m.name} />
+                      : <span className="avatar-initials">{getInitials(m.name)}</span>
+                    }
+                  </div>
+                  <h4>{m.name}</h4>
+                  <div className="team-role">{m.role}</div>
+                  <div className="team-divider"></div>
+                  <p>{m.desc}</p>
+                </div>
+              ))}
+            </div>
         </div>
       </section>
 
